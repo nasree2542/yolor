@@ -25,7 +25,7 @@ def load_classes(path):
     with open(path, 'r') as f:
         names = f.read().split('\n')
     names = list(filter(None, names))  # filter removes empty strings (such as last line)
-    return { i : names[i] for i in range(0, len(names) ) }
+    return { i+1 : names[i] for i in range(0, len(names) ) }
 
 
 def test(data,
