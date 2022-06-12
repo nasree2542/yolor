@@ -102,10 +102,12 @@ def test(data,
         dataloader = create_dataloader(path, imgsz, batch_size, 64, opt, pad=0.5, rect=True)[0]
 
     seen = 0
-    try:
-        names = model.names if hasattr(model, 'names') else model.module.names
-    except:
-        names = load_classes(opt.names)
+    names = load_classes('data/custom_classes.names')
+#     try:
+#         names = model.names if hasattr(model, 'names') else model.module.names
+#     except:
+#         names = load_classes(opt.names)
+
     coco91class = coco80_to_coco91_class()
     s = ('%20s' + '%12s' * 6) % ('Class', 'Images', 'Targets', 'P', 'R', 'mAP@.5', 'mAP@.5:.95')
     p, r, f1, mp, mr, map50, map, t0, t1 = 0., 0., 0., 0., 0., 0., 0., 0., 0.
