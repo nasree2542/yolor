@@ -105,7 +105,7 @@ def test(data,
 #     names = load_classes('data/custom_classes.names')
     try:
         names = model.names if hasattr(model, 'names') else model.module.names
-        names = { i+1 : names[i] for i in range(0, len(names) ) }
+        names = { i : names[i] for i in range(0, len(names) ) }
     except:
         names = load_classes(opt.names)
 
